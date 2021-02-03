@@ -7,6 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import Slider from 'rc-slider';
+
 import 'rc-slider/assets/index.css';
 import styles from './styles/NavbarStyles';
 
