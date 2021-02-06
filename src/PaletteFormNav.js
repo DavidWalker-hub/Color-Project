@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PaletteMetaForm from './PaletteMetaForm';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 350;
@@ -24,6 +24,7 @@ const styles = (theme) => ({
 		}),
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		height: '64px'
 	},
 	appBarShift: {
@@ -41,9 +42,13 @@ const styles = (theme) => ({
 		display: 'none'
 	},
 	navBtns: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center'
+		marginRight: '1rem',
+		'& a': {
+			textDecoration: 'none'
+		}
+	},
+	button: {
+		margin: '0 0.5rem'
 	}
 });
 
@@ -51,14 +56,10 @@ class PaletteFormNav extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { newPaletteName: '' };
+		this.state = { formShowing: false };
 		this.handleChange = this.handleChange.bind(this);
-	}
-
-	componentDidMount() {
-		ValidatorForm.addValidationRule('isPaletteNameUnique', (value) => {
-			return this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase());
-		});
+		this.showForm = this.showForm.bind(this);
+		this.hideForm = this.hideForm.bind(this);
 	}
 
 	handleChange(evt) {
@@ -67,9 +68,17 @@ class PaletteFormNav extends Component {
 		});
 	}
 
+	showForm() {
+		this.setState({ formShowing: true });
+	}
+
+	hideForm() {
+		this.setState({ formShowing: false });
+	}
+
 	render() {
-		const { classes, open } = this.props;
-		const { newPaletteName } = this.state;
+		const { classes, open, palettes, handleSubmit } = this.props;
+		const { formShowing } = this.state;
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -95,26 +104,24 @@ class PaletteFormNav extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={classes.navBtns}>
-						<ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
-							<TextValidator
-								value={this.state.newPaletteName}
-								name="newPaletteName"
-								label="Palette Name"
-								onChange={this.handleChange}
-								validators={[ 'required', 'isPaletteNameUnique' ]}
-								errorMessages={[ 'Enter Palette Name', 'Palette name already in use' ]}
-							/>
-							<Button variant="contained" color="primary" type="submit">
-								Save Palette
-							</Button>
-						</ValidatorForm>
 						<Link to="/">
-							<Button variant="contained" color="secondary">
+							<Button className={classes.button} variant="contained" color="secondary">
 								Go Back
 							</Button>
 						</Link>
+						<Button className={classes.button} variant="contained" color="primary" onClick={this.showForm}>
+							Save
+						</Button>
 					</div>
 				</AppBar>
+				{formShowing && (
+					<PaletteMetaForm
+						palettes={palettes}
+						handleSubmit={handleSubmit}
+						open={formShowing}
+						hideForm={this.hideForm}
+					/>
+				)}
 			</div>
 		);
 	}

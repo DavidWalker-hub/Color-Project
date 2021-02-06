@@ -24,9 +24,7 @@ const styles = (theme) => ({
 		flexShrink: 0
 	},
 	drawerPaper: {
-		width: drawerWidth,
-		display: 'flex',
-		alignItems: 'center'
+		width: drawerWidth
 	},
 	drawerHeader: {
 		display: 'flex',
@@ -59,7 +57,8 @@ const styles = (theme) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		margin: '0 auto'
 	},
 	buttons: {
 		width: '100%'
