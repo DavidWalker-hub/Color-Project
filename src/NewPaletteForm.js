@@ -104,15 +104,13 @@ class Newpaletteform extends Component {
 					}}
 				>
 					<div className={classes.drawerHeader}>
+						<Typography variant="h4">Design Your Palette</Typography>
 						<IconButton onClick={this.handleDrawerClose}>
 							<ChevronLeftIcon />
 						</IconButton>
 					</div>
 					<Divider />
 					<div className={classes.drawerContent}>
-						<Typography variant="h4" gutterBottom>
-							Design Your Palette
-						</Typography>
 						<div className={classes.buttons}>
 							<Button
 								variant="contained"
