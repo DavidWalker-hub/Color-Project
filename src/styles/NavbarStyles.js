@@ -1,3 +1,4 @@
+import sizes from './sizes';
 const styles = {
 	Navbar: {
 		display: 'flex',
@@ -18,6 +19,9 @@ const styles = {
 		'& a': {
 			textDecoration: 'none',
 			color: 'black'
+		},
+		[sizes.down('xs')]: {
+			display: 'none'
 		}
 	},
 
@@ -45,6 +49,9 @@ const styles = {
 			height: '13px',
 			marginLeft: '-4px',
 			marginTop: '-3px'
+		},
+		[sizes.down('sm')]: {
+			width: '150px'
 		}
 	}
 };

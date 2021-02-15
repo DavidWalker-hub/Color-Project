@@ -21,7 +21,7 @@ const styles = (theme) => ({
 		...theme.mixins.toolbar,
 		justifyContent: 'flex-end',
 		'& h4': {
-			marginRight: '1.5rem'
+			marginRight: '0.5rem'
 		}
 	},
 	content: {
