@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from '../constants';
+// import sizes from './sizes';
 const drawerWidth = DRAWER_WIDTH;
 
 const styles = (theme) => ({
@@ -33,6 +34,9 @@ const styles = (theme) => ({
 			duration: theme.transitions.duration.leavingScreen
 		}),
 		marginLeft: -drawerWidth
+		// '@media (max-width: 600px)': {
+		// 	paddingTop: '9px'
+		// }
 	},
 	contentShift: {
 		transition: theme.transitions.create('margin', {
