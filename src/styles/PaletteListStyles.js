@@ -1,11 +1,17 @@
 import sizes from './sizes';
+import bg from './bg.svg';
 const styles = {
 	root: {
-		backgroundColor: 'green',
 		height: '100vh',
 		display: 'flex',
 		alignItems: 'flex-start',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		backgroundColor: '#e5e2ee',
+		backgroundImage: `url(${bg})`,
+		/* background by SVGBackgrounds.com */
+		backgroundAttachment: 'fixed',
+		backgroundSize: 'cover',
+		overflowY: 'scroll'
 	},
 	container: {
 		width: '60%',
