@@ -12,7 +12,10 @@ const styles = {
 
 		'&:hover svg': {
 			color: 'white',
-			transform: 'scale(1.5)'
+			transform: 'scale(1.5)',
+			[sizes.down('sm')]: {
+				transform: 'scale(1.2)'
+			}
 		},
 		[sizes.down('lg')]: {
 			width: '25%',
@@ -39,7 +42,10 @@ const styles = {
 		textTransform: 'uppercase',
 		fontSize: '12px',
 		display: 'flex',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		[sizes.down('sm')]: {
+			padding: '0 10px'
+		}
 	},
 	delete: {
 		transition: 'all 0.3s ease-in-out'

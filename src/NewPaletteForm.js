@@ -145,6 +145,7 @@ class Newpaletteform extends Component {
 						deleteBox={this.deleteBox}
 						axis="xy"
 						onSortEnd={this.onSortEnd}
+						distance={5}
 					/>
 				</main>
 			</div>
