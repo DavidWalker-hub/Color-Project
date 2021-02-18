@@ -10,7 +10,8 @@ class MiniPalette extends Component {
 	}
 	deletePalette(e) {
 		e.stopPropagation();
-		this.props.deletePalette(this.props.id);
+		// this.props.deletePalette(this.props.id);
+		this.props.openDialog(this.props.id);
 	}
 	render() {
 		const { classes, paletteName, emoji, colors, handleClick } = this.props;

@@ -1,6 +1,15 @@
 import sizes from './sizes';
 import bg from './bg.svg';
 const styles = {
+	'@global': {
+		'.fade-exit': {
+			opacity: '1'
+		},
+		'.fade-exit-active': {
+			opacity: '0',
+			transition: 'opacity 500ms ease-out'
+		}
+	},
 	root: {
 		height: '100vh',
 		display: 'flex',
@@ -12,6 +21,9 @@ const styles = {
 		backgroundAttachment: 'fixed',
 		backgroundSize: 'cover',
 		overflowY: 'scroll'
+	},
+	heading: {
+		fontSize: '2rem'
 	},
 	container: {
 		width: '60%',
