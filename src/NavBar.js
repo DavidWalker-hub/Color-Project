@@ -6,8 +6,8 @@ import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
-import Slider from 'rc-slider';
 
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import styles from './styles/NavbarStyles';
 
@@ -27,7 +27,7 @@ class NavBar extends Component {
 	}
 	render() {
 		const { level, changeLevel, showSlider, classes } = this.props;
-		const { format } = this.state;
+		const { format, open } = this.state;
 		return (
 			<header className={classes.Navbar}>
 				<div className={classes.logo}>
@@ -53,7 +53,7 @@ class NavBar extends Component {
 						vertical: 'bottom',
 						horizontal: 'left'
 					}}
-					open={this.state.open}
+					open={open}
 					autoHideDuration={4000}
 					message={<span id="message-id">Format changed! - {format.toUpperCase()}</span>}
 					ContentProps={{ 'aria-describedby': 'message-id' }}
