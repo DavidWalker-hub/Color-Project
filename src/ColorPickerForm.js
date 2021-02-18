@@ -8,7 +8,7 @@ import styles from './styles/ColorPickerFormStyles';
 class ColorPickerForm extends Component {
 	constructor(props) {
 		super(props);
-
+		this.formRef = React.createRef();
 		this.state = { currentColor: 'teal', newColorName: '' };
 		this.updateCurrentColor = this.updateCurrentColor.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -47,7 +47,7 @@ class ColorPickerForm extends Component {
 			<div className={classes.root}>
 				<ChromePicker color={currentColor} onChange={this.updateCurrentColor} className={classes.picker} />
 
-				<ValidatorForm onSubmit={this.handleSubmit}>
+				<ValidatorForm onSubmit={this.handleSubmit} ref={this.formRef} instantValidate={false}>
 					<TextValidator
 						value={newColorName}
 						name="newColorName"
